@@ -15,7 +15,7 @@ _Then I noticed another bug ..._
 
 ## Exercise 1
 
-[[Your answer goes here!]]
+After running the website on my local machine I went through the user flow. I found that once the new order was made the program wasn't showing the pizza order even though it should've. So, I used the trace backward technique by searching the invaild keyword in the code. I discovered the bug on line 79 file in app.py it was caused by an incorrect variable name 'topping' instead of 'topping_type' while creating a object of PizzaTopping.
 
 ## Exercise 2
 
