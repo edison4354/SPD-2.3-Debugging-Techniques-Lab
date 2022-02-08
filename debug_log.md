@@ -19,7 +19,7 @@ _Then I noticed another bug ..._
 TypeError: 'topping' is an invalid keyword argument for PizzaTopping
 ```
 
-I found when new order was made the program wasn't showing the pizza order even though it should've. So, I used the trace backward technique by searching the invaild keyword `topping` in the code. I discovered the bug on line 87 file in `app.py` it was caused by an incorrect property name `topping` instead of `topping_type` while creating a object of `PizzaTopping`. Fixed!
+I found when new order was made the program wasn't showing the pizza order even though it should've. So, I used the **trace backward** technique by searching the invaild keyword `topping` in the code. I discovered the bug on line 87 file in `app.py` it was caused by an incorrect property name `topping` instead of `topping_type` while creating a object of `PizzaTopping`. Fixed!
 
 ```
 werkzeug.routing.BuildError: Could not build url for endpoint '/'. Did you mean 'fulfill_order' instead?
@@ -42,9 +42,27 @@ Line 86 `for topping_str in ToppingType:` to `for topping_str in toppings_list:`
 
 The last and final bug I found was that the pizza data wasn't commited after being added to the session. Included `db.session.commit()` after `db.session.add(pizza)`. Fixed!
 
+
 ## Exercise 2
 
-[[Your answer goes here!]]
+```
+KeyError: 'name'
+```
+
+I noticed a error after submitting the form on the first page. Instead of showing the weather, a KeyError is thrown. Stack trace indicates that this error is located on Line 52 in `app.py`. Changed `'city': result_json['name'],` to `'city': city,`. Fixed!
+
+```
+KeyError: 'weather'
+```
+
+Stack trace indicates that this error is located on Line 53 in `app.py`. After using **trace back** I realized that the api request wasn't returning the correct values, `result_json` instead came back with `{'cod': '400', 'message': 'Nothing to geocode'}`. The `params` passed in with the get request were `None` other than api key. On line 39 and 40 I changed the `args` names to the match the `home.html` form input names. As well as the params key name for city on line 45 from `'place': city,` to `'q': city,`. Fixed!
+
+```
+KeyError: 'temperature'
+```
+
+The last error was on line 54, it was the wrong name for a API JSON field. changed `['temperature']` to `['temp']`. Fixed!
+
 
 ## Exercise 3
 
