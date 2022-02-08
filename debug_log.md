@@ -66,4 +66,15 @@ The last error was on line 54, it was the wrong name for a API JSON field. chang
 
 ## Exercise 3
 
-[[Your answer goes here!]]
+```
+IndexError: list index out of range
+```
+
+Using **trace back** the stack trace indicates the error is because of line 37. I noticed the wrong index variable is being used. Change `right_side[i]` to `right_side[j]`. Fixed!
+
+```
+TypeError: list indices must be integers or slices, not float
+```
+
+Using **trace back** the stack trace indicates the error is because of line 48. I noticed the wrong math operator is being used. Change `mid = (high + low) / 2` to `mid = (high + low) // 2`. Fixed!
+
